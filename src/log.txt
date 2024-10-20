@@ -1,0 +1,21 @@
+kirill@koldun ~/t/story-protocol-boilerplate (main)> forge create --rpc-url "https://testnet.storyrpc.io" --private-key $PRIVATE_KEY s
+rc/SONFT.sol:SONFT --constructor-args "InflSONFT" "ison" "0x6C7Ab2202C98C4227C5c46f1417D81144DA716Ff" "0x5873298b68497fad590f68221D9a8
+d134902DE64"
+[⠒] Compiling...
+[⠆] Compiling 29 files with Solc 0.8.26
+[⠰] Solc 0.8.26 finished in 1.16s
+Compiler run successful!
+Deployer: 0x5873298b68497fad590f68221D9a8d134902DE64
+Deployed to: 0x24267a6469f64906818f26408b620EC6195f04B6
+Transaction hash: 0xb86bf18186d04fcee6ca8a52dea36af393b49b741fd60feb867c9448d7836a0b
+
+kirill@koldun ~/t/story-protocol-boilerplate (main) [1]> forge create --rpc-url "https://testnet.storyrpc.io" --private-key $PRIVATE_K
+EY src/InLT.sol:InLT --constructor-args 0x1a9d0d28a0422F26D31Be72Edc6f13ea4371E11B 0xd81fd78f557b457b4350cB95D20b547bFEb4D857 0x0752f6
+1E59fD2D39193a74610F1bd9a6Ade2E3f9
+[⠒] Compiling...
+[⠑] Compiling 1 files with Solc 0.8.26
+[⠃] Solc 0.8.26 finished in 4.72s
+Compiler run successful with warnings:
+Deployer: 0x5873298b68497fad590f68221D9a8d134902DE64
+Deployed to: 0x29fAc56b5f34e29BC363cA18ACB33924f2Ce166c
+Transaction hash: 0x146400898e1bfaa4597b8912a911dcc299d4525a44ed869ed9daee827db5ab74
