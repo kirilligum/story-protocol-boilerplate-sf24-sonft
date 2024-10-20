@@ -5,32 +5,32 @@ import { IPAssetRegistry } from "@storyprotocol/core/registries/IPAssetRegistry.
 import { LicensingModule } from "@storyprotocol/core/modules/licensing/LicensingModule.sol";
 import { PILicenseTemplate } from "@storyprotocol/core/modules/licensing/PILicenseTemplate.sol";
 
-import { SimpleNFT } from "./SimpleNFT.sol";
+import { SONFT } from "./SONFT.sol";
 
 /// @notice Mint a License Token from Programmable IP License Terms attached to an IP Account.
-contract IPALicenseToken {
+contract InLT {
     IPAssetRegistry public immutable IP_ASSET_REGISTRY;
     LicensingModule public immutable LICENSING_MODULE;
     PILicenseTemplate public immutable PIL_TEMPLATE;
-    SimpleNFT public immutable SIMPLE_NFT;
+    SONFT public immutable SIMPLE_NFT;
 
     constructor(address ipAssetRegistry, address licensingModule, address pilTemplate) {
         IP_ASSET_REGISTRY = IPAssetRegistry(ipAssetRegistry);
         LICENSING_MODULE = LicensingModule(licensingModule);
         PIL_TEMPLATE = PILicenseTemplate(pilTemplate);
         // Create a new Simple NFT collection
-        SIMPLE_NFT = new SimpleNFT("Simple IP NFT", "SIM");
     }
 
     function mintLicenseToken(
         uint256 ltAmount,
-        address ltRecipient
+        address ltRecipient,
+        address nftAddr
     ) external returns (address ipId, uint256 tokenId, uint256 startLicenseTokenId) {
         // First, mint an NFT and register it as an IP Account.
         // Note that first we mint the NFT to this contract for ease of attaching license terms.
         // We will transfer the NFT to the msg.sender at last.
-        tokenId = SIMPLE_NFT.mint(address(this));
-        ipId = IP_ASSET_REGISTRY.register(block.chainid, address(SIMPLE_NFT), tokenId);
+        tokenId = 1;
+        ipId = IP_ASSET_REGISTRY.register(block.chainid, nftAddr, tokenId);
 
         // Then, attach a selection of license terms from the PILicenseTemplate, which is already registered.
         // Note that licenseTermsId = 2 is a Non-Commercial Social Remixing (NSCR) license.
@@ -49,6 +49,6 @@ contract IPALicenseToken {
         });
 
         // Finally, transfer the NFT to the msg.sender.
-        SIMPLE_NFT.transferFrom(address(this), msg.sender, tokenId);
+        // SIMPLE_NFT.transferFrom(address(this), msg.sender, tokenId);
     }
 }
