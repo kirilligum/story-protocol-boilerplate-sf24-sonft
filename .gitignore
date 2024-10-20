@@ -36,3 +36,4 @@ lcov.info
 
 # forge lib folder
 lib/
+.aider*
