@@ -12,7 +12,6 @@ contract InLT {
     IPAssetRegistry public immutable IP_ASSET_REGISTRY;
     LicensingModule public immutable LICENSING_MODULE;
     PILicenseTemplate public immutable PIL_TEMPLATE;
-    SONFT public immutable SIMPLE_NFT;
 
     constructor(address ipAssetRegistry, address licensingModule, address pilTemplate) {
         IP_ASSET_REGISTRY = IPAssetRegistry(ipAssetRegistry);
